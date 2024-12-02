@@ -14,8 +14,6 @@ import Text.Printf
 
 type Parser = Parsec Void Text
 
-type MyParseError = ParseErrorBundle Void Text
-
 pairParser :: Parser (Int, Int)
 pairParser = do
   a <- L.decimal
