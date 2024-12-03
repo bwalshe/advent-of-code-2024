@@ -72,8 +72,7 @@ executable advent-of-code2024
     build-depends:    base ^>=4.16.4.0,
         text, 
         megaparsec ^>=9.7.0,
-        unordered-containers ^>=0.2.20,
-        mtl
+        unordered-containers ^>=0.2.20
 
     -- Directories containing source files.
     hs-source-dirs:   app
