@@ -3,16 +3,12 @@
 module Day1 where
 
 import qualified Data.HashMap.Strict as Map
-import Data.List
-import Data.Text (Text)
-import qualified Data.Text.IO as TIO
-import Data.Void
+import Data.List (sort)
 import Text.Megaparsec
 import Text.Megaparsec.Char
 import qualified Text.Megaparsec.Char.Lexer as L
 import Text.Printf
-
-type Parser = Parsec Void Text
+import Util
 
 pairParser :: Parser (Int, Int)
 pairParser = do
@@ -41,12 +37,10 @@ task2 numsA numsB =
 makeLists :: [(Int, Int)] -> ([Int], [Int])
 makeLists = unzip
 
+tasks :: ([Int], [Int]) -> IO ()
+tasks pairs = do
+  printf "Task 1: %d\n" $ uncurry sumDifference pairs
+  printf "Task 2: %d\n" $ uncurry task2 pairs
+
 runDay1Tasks :: IO ()
-runDay1Tasks = do
-  let fileName = "data/day1/input1.txt"
-  fileText <- TIO.readFile fileName
-  case runParser dataParser fileName fileText of
-    Right pairs -> do
-      printf "Task 1: %d\n" $ uncurry sumDifference pairs
-      printf "Task 2: %d\n" $ uncurry task2 pairs
-    Left e -> print $ errorBundlePretty e
+runDay1Tasks = runDayilyTasks dataParser tasks "data/day1/input1.txt"

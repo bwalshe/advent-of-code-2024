@@ -3,14 +3,11 @@
 module Day3 where
 
 import Data.Text hiding (foldl)
-import Data.Text.IO as TIO
-import Data.Void
 import Text.Megaparsec as M hiding (State)
 import Text.Megaparsec.Char as MC
 import Text.Megaparsec.Char.Lexer as L
 import Text.Printf
-
-type Parser = Parsec Void Text
+import Util
 
 shortNum :: Parser Int
 shortNum = do
@@ -65,14 +62,12 @@ evaluateCmds = snd . foldl updateState (True, 0)
 task2 :: [Command] -> Int
 task2 = evaluateCmds
 
+tasks :: ([Command], Text) -> IO ()
+tasks (cmds, rest) = do
+  printf "Unparsed remainder: %s\n" rest
+  printf "Last command: %s\n" $ show $ Prelude.last cmds
+  printf "Task 1: %d\n" $ task1 cmds
+  printf "Task 2: %d\n" $ task2 cmds
+
 runDay3Tasks :: IO ()
-runDay3Tasks = do
-  let fileName = "data/day3/input.txt"
-  fileText <- TIO.readFile fileName
-  case runParser dataParser fileName fileText of
-    Right (cmds, rest) -> do
-      printf "Unparsed remainder: %s\n" rest
-      printf "Last command: %s\n" $ show $ Prelude.last cmds
-      printf "Task 1: %d\n" $ task1 cmds
-      printf "Task 2: %d\n" $ task2 cmds
-    Left e -> print $ errorBundlePretty e
+runDay3Tasks = runDayilyTasks dataParser tasks "data/day3/input.txt"

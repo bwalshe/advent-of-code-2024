@@ -2,15 +2,11 @@
 
 module Day2 where
 
-import Data.Text (Text)
-import qualified Data.Text.IO as TIO
-import Data.Void
 import Text.Megaparsec
 import Text.Megaparsec.Char
 import qualified Text.Megaparsec.Char.Lexer as L
 import Text.Printf
-
-type Parser = Parsec Void Text
+import Util
 
 rowParser :: Parser [Int]
 rowParser = sepBy L.decimal (char ' ')
@@ -50,12 +46,10 @@ dampenedMonotonic nums = monotonic nums || any monotonic sublists
 task2 :: [[Int]] -> Int
 task2 = sum . map (fromEnum . dampenedMonotonic)
 
+tasks :: [[Int]] -> IO ()
+tasks lists = do
+  printf "Task 1: %d\n" $ task1 lists
+  printf "Task 2: %d\n" $ task2 lists
+
 runDay2Tasks :: IO ()
-runDay2Tasks = do
-  let fileName = "data/day2/input.txt"
-  fileText <- TIO.readFile fileName
-  case runParser dataParser fileName fileText of
-    Right lists -> do
-      printf "Task 1: %d\n" $ task1 lists
-      printf "Task 2: %d\n" $ task2 lists
-    Left e -> print $ errorBundlePretty e
+runDay2Tasks = runDayilyTasks dataParser tasks "data/day2/input.txt"
