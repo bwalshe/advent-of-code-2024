@@ -43,4 +43,4 @@ tasks pairs = do
   printf "Task 2: %d\n" $ uncurry task2 pairs
 
 runDay1Tasks :: IO ()
-runDay1Tasks = runDayilyTasks dataParser tasks "data/day1/input1.txt"
+runDay1Tasks = runDailyTasks dataParser tasks "data/day1/input1.txt"

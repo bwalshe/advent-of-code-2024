@@ -62,6 +62,7 @@ test-suite test
         base ^>=4.16.4.0,
         text,
         HUnit,
+        megaparsec,
         unordered-containers ^>=0.2.20,
         hashable ^>=1.4.7.0
     hs-source-dirs: test, lib
@@ -81,7 +82,8 @@ executable advent-of-code2024
        Day3,
        Day4,
        Day5,
-       Day6
+       Day6,
+       Day7
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
 

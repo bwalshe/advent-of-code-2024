@@ -81,4 +81,4 @@ tasks (BookData ordering pageLists) = do
   printf "Task 2: %d\n" $ task2 orderRules pageLists
 
 runDay5Tasks :: IO ()
-runDay5Tasks = runDayilyTasks dataParser tasks "data/day5/input.txt"
+runDay5Tasks = runDailyTasks dataParser tasks "data/day5/input.txt"

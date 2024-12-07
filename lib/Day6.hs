@@ -11,7 +11,6 @@ import Data.Text as T (Text, length, lines, unpack)
 import Data.Text.IO as TIO (readFile)
 import GHC.Generics (Generic)
 import Text.Printf
-import Data.Maybe (isNothing)
 import Data.Either (isLeft)
 
 type Coord = (Int, Int)

@@ -52,4 +52,4 @@ tasks lists = do
   printf "Task 2: %d\n" $ task2 lists
 
 runDay2Tasks :: IO ()
-runDay2Tasks = runDayilyTasks dataParser tasks "data/day2/input.txt"
+runDay2Tasks = runDailyTasks dataParser tasks "data/day2/input.txt"

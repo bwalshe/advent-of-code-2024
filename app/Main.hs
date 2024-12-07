@@ -6,6 +6,7 @@ import Day3 (runDay3Tasks)
 import Day4 (runDay4Tasks)
 import Day5 (runDay5Tasks)
 import Day6 (runDay6Tasks)
+import Day7 (runDay7Tasks)
 
 tasks :: [IO ()]
 tasks =
@@ -14,7 +15,8 @@ tasks =
     runDay3Tasks,
     runDay4Tasks,
     runDay5Tasks,
-    runDay6Tasks
+    runDay6Tasks,
+    runDay7Tasks
   ]
 
 main :: IO ()

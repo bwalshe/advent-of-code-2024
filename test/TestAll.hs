@@ -2,6 +2,7 @@
 module Main where
 
 import Day6
+import Day7
 import Data.Either as E 
 import Test.HUnit
 import Data.HashSet as Set
@@ -13,10 +14,36 @@ testFindLoop =
        p = getPath $ fromRight emptyPathTracker $ findPath' map guard
    in TestCase $ assertEqual "Example from website" 6 (countLoops map emptyPathTracker 0 p) 
 
+testDay7CheckRow :: Test 
+testDay7CheckRow  = 
+   let rows = [(156, [15, 6]),
+               (7290, [6, 8, 6, 15]),
+               (192, [17, 8, 14]),
+               (190, [10, 19]),
+               (292, [11, 6, 16, 20]),
+               (3267, [81, 40, 27])
+              ]
+   in TestCase $ mapM_ (assertBool "Should be true") (checkValid2 <$> rows)
 
---tests ::TestList 
---tests = [TestCase testFindLoop]
+
+
+testDay7pt2 :: Test
+testDay7pt2 = 
+   let
+     rows = [(190, [10, 19]),
+             (3267, [81, 40, 27]),
+             (83, [17, 5]),
+             (156, [15, 6]),
+             (7290, [6, 8, 6, 15]),
+             (161011, [16, 10, 13]),
+             (192, [17, 8, 14]),
+             (21037, [9, 7, 18, 13]),
+             (292, [11, 6, 16, 20])]
+      in TestCase $ assertEqual "Example from website" 11387 (sumValidRows checkValid2 rows)
+
+tests ::Test 
+tests = TestList [testFindLoop, testDay7CheckRow, testDay7pt2]
 
 
 main :: IO Counts 
-main = do runTestTT testFindLoop
+main = do runTestTT tests

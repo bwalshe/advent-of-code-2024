@@ -70,4 +70,4 @@ tasks (cmds, rest) = do
   printf "Task 2: %d\n" $ task2 cmds
 
 runDay3Tasks :: IO ()
-runDay3Tasks = runDayilyTasks dataParser tasks "data/day3/input.txt"
+runDay3Tasks = runDailyTasks dataParser tasks "data/day3/input.txt"
