@@ -53,6 +53,19 @@ extra-doc-files:    CHANGELOG.md
 common warnings
     ghc-options: -Wall
 
+test-suite test
+    type: exitcode-stdio-1.0
+    main-is: TestAll.hs
+    other-modules:
+        Day6
+    build-depends:
+        base ^>=4.16.4.0,
+        text,
+        HUnit,
+        unordered-containers ^>=0.2.20,
+        hashable ^>=1.4.7.0
+    hs-source-dirs: test, lib
+
 executable advent-of-code2024
     -- Import common warning flags.
     import:           warnings
@@ -67,7 +80,8 @@ executable advent-of-code2024
        Day2,
        Day3,
        Day4,
-       Day5
+       Day5,
+       Day6
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
 
@@ -79,7 +93,7 @@ executable advent-of-code2024
         hashable ^>=1.4.7.0
 
     -- Directories containing source files.
-    hs-source-dirs:   app
+    hs-source-dirs:   app, lib
 
     -- Base language which the package is written in.
     default-language: Haskell2010
