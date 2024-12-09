@@ -57,7 +57,11 @@ test-suite test
     type: exitcode-stdio-1.0
     main-is: TestAll.hs
     other-modules:
-        Day6
+        Util,
+        Day6,
+        Day7,
+        Day8,
+        TestDay8
     build-depends:
         base ^>=4.16.4.0,
         text,
@@ -83,7 +87,8 @@ executable advent-of-code2024
        Day4,
        Day5,
        Day6,
-       Day7
+       Day7,
+       Day8
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
 
