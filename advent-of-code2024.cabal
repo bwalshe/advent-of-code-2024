@@ -89,8 +89,9 @@ executable advent-of-code2024
        Day6,
        Day7,
        Day8,
-       --Day9 
-       Day10
+       --Day9, 
+       Day10,
+       Day11
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
 
@@ -99,8 +100,9 @@ executable advent-of-code2024
         text, 
         megaparsec ^>=9.7.0,
         unordered-containers ^>=0.2.20,
-        hashable ^>=1.4.7.0
-
+        hashable ^>=1.4.7.0,
+        memoize ^>= 1.1.2
+        
     -- Directories containing source files.
     hs-source-dirs:   app, lib
 
