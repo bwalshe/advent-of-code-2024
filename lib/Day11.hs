@@ -9,7 +9,6 @@ import qualified Data.Text.Lazy.Builder.Int as B
 import Data.Text.Read (decimal)
 import Text.Printf
 import Data.List as L
-import Data.Function.Memoize
 
 intToText :: Integral a => a -> T.Text
 intToText = T.toStrict . B.toLazyText . B.decimal
@@ -50,8 +49,6 @@ runBlinks c l = runBlinks (c-1) $ concatMap blink l
 task1:: Int -> [Text] -> Int 
 task1 c stones  = L.length $ runBlinks c stones
 
-efficientBlink Int -> [Int]
-efficientBlink 
 
 runDay11Tasks :: IO ()
 runDay11Tasks = printf "Task 1: %d\n" $ task1 75 ["0", "44", "175060", "3442", "593", "54398", "9", "8101095"]
