@@ -93,7 +93,10 @@ executable advent-of-code2024
        Day10,
        --Day11,
        Day12,
-       Day13
+       Day13,
+       --Day14,
+       --Day15,
+       Day16
     -- LANGUAGE extensions used by modules in this package.
     -- other-extensions:
 
@@ -105,7 +108,8 @@ executable advent-of-code2024
         hashable ^>=1.4.7.0,
         memoize ^>= 1.1.2,
         mtl,
-        matrix
+        matrix,
+        PSQueue ^>= 1.2.0
         
     -- Directories containing source files.
     hs-source-dirs:   app, lib
